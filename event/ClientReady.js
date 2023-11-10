@@ -27,38 +27,6 @@ export default {
       }
     }
 
-    cron.schedule('59 59 23 * * *', async () => {
-      const d = new Date()
-      const date = new Date(d.getFullYear(), d.getMonth(), d.getDate())
-      const guildsData = JSON.parse(fs.readFileSync('./data/guilds.json'))
-      for (const guildData of guildsData) {
-        let guild
-        let channel
-        try {
-          guild = await client.guilds.fetch(guildData.id)
-          channel = await guild.channels.fetch(guildData.sendTo)
-        } catch (error) {
-          return
-        }
-
-        channel.send({
-          embeds: [new EmbedBuilder()
-            .setTitle(functions.dateToString(date, false))
-            .setDescription(guildData.count)
-            .setColor(data.mutaoColor)
-          ]
-        }).catch(_error => {})
-
-        guildsData.find(guildData => guildData.id === guild.id).history.push({
-          timestamp: date.getTime(),
-          count: guildData.count
-        })
-        guildsData.find(guildData => guildData.id === guild.id).count = 0
-      }
-
-      functions.writeFile('./data/guilds.json', guildsData)
-    })
-
     logger.info('setting commands...')
     await client.application.commands.set(registCommands)
 
