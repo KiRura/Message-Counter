@@ -51,6 +51,7 @@ cron.schedule('59 59 23 * * *', async () => {
   const date = new Date(d.getFullYear(), d.getMonth(), d.getDate())
   const guildsData = JSON.parse(fs.readFileSync('./data/guilds.json'))
   for (const guildData of guildsData) {
+    if (guildData.sendTo === null) return
     let guild
     let channel
     try {
@@ -60,7 +61,7 @@ cron.schedule('59 59 23 * * *', async () => {
       return
     }
 
-    channel.send({
+    await channel.send({
       embeds: [new EmbedBuilder()
         .setTitle(functions.dateToString(date, false))
         .setDescription(guildData.count)
