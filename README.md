@@ -1,4 +1,4 @@
-# message-counter
+# Message-Counter
 
 メッセージカウントをするBOT
 
