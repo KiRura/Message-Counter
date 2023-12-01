@@ -4,7 +4,6 @@ import functions from '../functions.js'
 import { ActivityType, Client, EmbedBuilder, Events } from 'discord.js'
 import fs from 'fs'
 import data from '../data.js'
-import cron from 'node-cron'
 const logger = new Logger({ hideLogPositionForProduction: true })
 
 export default {
