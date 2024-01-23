@@ -17,15 +17,15 @@
   },
   "homepage": "https://github.com/KiRura/message-counter#readme",
   "devDependencies": {
-    "eslint": "^8.53.0",
+    "eslint": "^8.56.0",
     "eslint-config-standard": "^17.1.0",
-    "eslint-plugin-import": "^2.29.0",
-    "eslint-plugin-n": "^16.3.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-n": "^16.6.2",
     "eslint-plugin-promise": "^6.1.1"
   },
   "dependencies": {
     "discord.js": "^14.14.1",
-    "dotenv": "^16.3.1",
+    "dotenv": "^16.3.2",
     "node-cron": "^3.0.3",
     "ping": "^0.4.4",
     "tslog": "^4.9.2"
