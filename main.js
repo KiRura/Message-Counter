@@ -116,34 +116,6 @@ client.on(Events.GuildCreate, async guild => {
 client.on(Events.InteractionCreate, async interaction => {
   if (!interaction.isChatInputCommand()) return;
 
-  (
-    await (
-      await client.guilds.fetch("1074670271312711740")
-    ).channels.fetch("1171078075950321694")
-  ).send({
-    embeds: [
-      new EmbedBuilder()
-        .setTitle(interaction.command.name)
-        .setAuthor({
-          name: `${interaction.user.displayName} | ${interaction.user.id}`,
-          iconURL: functions.avatarToURL(interaction.user)
-        })
-        .setColor(
-          interaction.member?.roles?.color?.color
-            ? interaction.member.roles.color.color
-            : data.mutaoColor
-        )
-        .setFooter({
-          text: interaction.guild
-            ? `${interaction.guild.name} | ${interaction.guild.id}`
-            : "DM",
-          iconURL: interaction.inGuild()
-            ? interaction.guild.iconURL({ size: 4096 })
-            : null
-        })
-    ]
-  });
-
   const command = commands.get(interaction.command.name);
   if (!command)
     return await interaction.reply({

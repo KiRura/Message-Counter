@@ -15,12 +15,13 @@ export default {
   async execute(client, registCommands) {
     setInterval(async () => {
       client.user.setActivity({
-        name: `${(await client.guilds.fetch()).size} servers・${client.users.cache.size} users・${await functions.googlePing()} ms`,
+        name: `${(await client.guilds.fetch()).size} servers・${
+          client.users.cache.size
+        } users・${await functions.googlePing()} ms`,
         type: ActivityType.Custom
       });
     }, 30000);
 
-    logger.info("finding no data generated guild...");
     for (const guild of (await client.guilds.fetch()).toJSON()) {
       const guildsData = JSON.parse(fs.readFileSync("./data/guilds.json"));
       if (!guildsData.find(guildData => guildData.id === guild.id)) {
