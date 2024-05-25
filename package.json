@@ -26,6 +26,6 @@
   "type": "module",
   "devDependencies": {
     "@biomejs/biome": "^1.7.3",
-    "globals": "^15.2.0"
+    "globals": "^15.3.0"
   }
 }

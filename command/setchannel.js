@@ -1,8 +1,6 @@
-/* eslint-disable no-unused-vars */
 import {
 	ChannelType,
 	ChatInputCommandInteraction,
-	Client,
 	EmbedBuilder,
 	PermissionFlagsBits,
 	SlashCommandBuilder,

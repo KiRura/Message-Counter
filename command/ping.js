@@ -13,7 +13,7 @@ export default {
 	 */
 	async execute(interaction) {
 		const googlePingResult = await functions.googlePing();
-		const fetchAdminResult = await functions.fetchAdmin(client);
+		const fetchAdminResult = await functions.fetchAdmin(interaction.client);
 		const embed = new EmbedBuilder()
 			.setTitle("Pong!")
 			.setFields([

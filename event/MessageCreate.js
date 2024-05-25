@@ -4,7 +4,11 @@ import functions from "../functions.js";
 
 export default {
 	name: Events.MessageCreate,
+	/**
+	 * @param {import("discord.js").Message} message
+	 */
 	async execute(message) {
+		if (!message.inGuild()) return;
 		const guildsData = JSON.parse(fs.readFileSync("./data/guilds.json"));
 		const guild = guildsData.find(
 			(guildData) => guildData.id === message.guild.id,
